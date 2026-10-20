@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventSphere | Discover Events</title>
+</head>
+<body>
+    <h1>EventSphere</h1>
+    <p>Discover experiences. Create memories.</p>
+
+    <h2>Explore Events</h2>
+
+    {% for event in events %}
+        <div>
+            <h3>{{ event.get('title', event.get('name', 'Untitled Event')) }}</h3>
+            <p>Category: {{ event.get('category', 'Other') }}</p>
+            <p>Language: {{ event.get('language', 'Not specified') }}</p>
+            <p>Organizer: {{ event.get('organizer', 'Not specified') }}</p>
+        </div>
+        <hr>
+    {% else %}
+        <p>No events found.</p>
+    {% endfor %}
+</body>
+</html>
